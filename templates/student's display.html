@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Consultation Slots</title>
+    </head>
+
+    <body>
+        <table width="100%" border="1px">
+            <th align="left">Teacher</th>
+            <th align="left">Date</th>
+            <th align="left">TimeSlot</th>
+            <th align="left">Current</th>
+            <th align="left">Min</th>
+            <th align="left">Max</th>
+
+            {% for c in data %}
+            <tr>
+                <td>{{c[3]}}</td>
+                <td>{{c[0]}}</td>
+                <td>{{c[1]}}</td>
+                <td>{{c[2]}}</td>
+                <td>{{c[5]}}</td>
+                <td>{{c[4]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+
+</html>

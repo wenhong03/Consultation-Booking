@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slots Booked By Students</title>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;">Slots Booked By Students</h1>
+        <table width="100%" border="1px">
+            <tr>
+                <th align="left">Names</th>
+                <th align="left">Date</th>
+                <th align="left">TimeSlot</th>
+                <th align="left">Min</th>
+                <th align="left">Max</th>
+                <th align="left">Current</th>
+            </tr>
+
+            {% for i in range(consultations|length) %}
+                {% for j in range(groups_of_names[i]|length) %}
+                    {% if j == 0 %}
+                    <tr>
+                        <td>{{groups_of_names[i][j][0]}}</td>
+                        <td rowspan="{{groups_of_names[i]|length}}">{{consultations[i][0]}}</td>
+                        <td rowspan="{{groups_of_names[i]|length}}">{{consultations[i][1]}}</td>
+                        <td rowspan="{{groups_of_names[i]|length}}">{{consultations[i][3]}}</td>
+                        <td rowspan="{{groups_of_names[i]|length}}">{{consultations[i][2]}}</td>
+                        <td rowspan="{{groups_of_names[i]|length}}">{{consultations[i][4]}}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td>{{groups_of_names[i][j][0]}}</td>
+                    </tr>
+                    {% endif %}                  
+                {% endfor %}
+            {% endfor %}
+        </table>
+    </body>
+</html>
